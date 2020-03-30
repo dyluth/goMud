@@ -1,0 +1,29 @@
+{
+    "players": [
+        {
+            "name":"first player",
+            "token":"", 
+            "description":"very generic person",
+            "room":"first room"
+        }
+    ],
+    "rooms" :[
+        {
+            "name":"first room",
+            "description":"the room looks really dull",
+            "contents": ["banana"],
+            "exits":{
+                "slide":"second room"
+            }
+        },
+        {
+            "name":"second room",
+            "description":"the room looks really dull, like the first room",
+            "contents": ["giraffe"],
+            "exits":{
+                "ladder":"first room"
+            }
+        }
+
+    ]
+}
