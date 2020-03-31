@@ -81,7 +81,6 @@ func Move(c *gin.Context) {
 			c.String(http.StatusOK, fmt.Sprintf("%v\n%v\n", description, newRoom.Describe()))
 			return
 		}
-		fmt.Printf("door: %v\n", description)
 		c.String(http.StatusOK, description)
 		return
 	}

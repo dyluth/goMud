@@ -152,7 +152,6 @@ func LoadGame(gf GameFile) LoadedGame {
 		d := door // make a copy
 		lg.doors[door.Name] = &d
 	}
-	fmt.Printf("DOORS: {%+v}\n", lg.doors)
 	return lg
 }
 
