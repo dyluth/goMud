@@ -64,7 +64,25 @@ func Move(c *gin.Context) {
 	}
 	newRoom, ok := game.GetRoom(newRoomName)
 	if !ok {
-		c.JSON(http.StatusServiceUnavailable, ErrorResponse{Msg: fmt.Sprintf("uh-oh, %v is not in a valid room", newRoomName)})
+		//	look for a door instead
+		door, ok := game.GetDoor(newRoomName)
+		if !ok {
+			c.JSON(http.StatusServiceUnavailable, ErrorResponse{Msg: fmt.Sprintf("uh-oh, %v is not in a valid room OR door", newRoomName)})
+			return
+		}
+		throughDoorRoomName, description, moved := door.Enter(room.Name, player)
+		if moved {
+			newRoom, ok = game.GetRoom(throughDoorRoomName)
+			if !ok {
+				c.JSON(http.StatusServiceUnavailable, ErrorResponse{Msg: fmt.Sprintf("uh-oh, %v is not in a valid room OR door", throughDoorRoomName)})
+				return
+			}
+			player.CurrentRoom = newRoom.Name
+			c.String(http.StatusOK, fmt.Sprintf("%v\n%v\n", description, newRoom.Describe()))
+			return
+		}
+		fmt.Printf("door: %v\n", description)
+		c.String(http.StatusOK, description)
 		return
 	}
 

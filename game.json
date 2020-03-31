@@ -31,7 +31,7 @@
             "exits":{
                 "door":"bed room",
                 "office":"office",
-                "slide":"ballpit"
+                "slide":"slide"
             }
         },
         {
@@ -44,9 +44,9 @@
         },
         {
             "name":"ballpit",
-            "description":"you slide down, and land with a splash in to a large ballpit!\n you had forgotten that was here",
+            "description":" you had forgotten that this ballpit was here,\n there is no way you're getting back up that slide,\n but there is a hatch to get out",
             "exits":{
-                "hatch":"kitchen"
+                "hatch":"hatch"
             }
         },
         {
@@ -57,6 +57,22 @@
                 "ladder":"office"
             }
         }
-
+    ],
+    "doors": [
+        {
+            "name":"hatch",
+            "description":"you crawl your way through the hatch and drop to the floor\n",
+            "leads-to":["kitchen"]
+        },
+        {
+            "name":"slide",
+            "description":"you put giraffe on your knee and push off down the slide.. weee!\n and land with a splash in to a large ballpit!\n",
+            "leads-to":["ballpit"],
+            "openable":{
+                "auto-opens":true,
+                "open-needs":["giraffe"],
+                "locked-description": "you would feel a lot better going down it with giraffe\n"
+            }
+        }
     ]
 }

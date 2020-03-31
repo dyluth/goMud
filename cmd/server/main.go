@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"io/ioutil"
+	"os"
 
 	"github.com/dyluth/goMud/gomud"
 	"github.com/dyluth/goMud/server"
@@ -10,8 +11,12 @@ import (
 
 // The main for running the mud Engine
 func main() {
+	fileName := os.Getenv("GAMEFILE")
+	if fileName == "" {
+		fileName = "./game.json"
+	}
 
-	data, err := ioutil.ReadFile("./game.json")
+	data, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		panic(err)
 	}
