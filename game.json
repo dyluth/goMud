@@ -1,27 +1,60 @@
 {
     "players": [
         {
-            "name":"first player",
+            "name":"Anna",
             "token":"", 
-            "description":"very generic person",
-            "room":"first room"
+            "description":"Thin girl in glasses with her hair in a plait",
+            "room":"bed room"
         }
     ],
     "rooms" :[
         {
-            "name":"first room",
-            "description":"the room looks really dull",
-            "contents": ["banana"],
+            "name":"bed room",
+            "description":"you are standing in a bedroom on the seccond floor\nTwo large floor to ceiling windows show countryside outside\nYou wish you could go out there, but the quarantine is in force\n",
+            "contents": ["giraffe"],
             "exits":{
-                "slide":"second room"
+                "ensuite":"ensuite",
+                "hallway":"hallway"
             }
         },
         {
-            "name":"second room",
-            "description":"the room looks really dull, like the first room",
-            "contents": ["giraffe"],
+            "name":"ensuite",
+            "description":"The master bedroom's ensuite has a shower, toilet and sink, but not much of interest",
+            "contents": ["toothbrush", "toothpaste"],
             "exits":{
-                "ladder":"first room"
+                "door":"bed room"
+            }
+        },
+        {
+            "name":"hallway",
+            "description":"this white hallway stretches in front of you,\n it curves round to the right, and you can see the top of\n a slide where the stairs should be\n a door next to the slide leads to a small office",
+            "exits":{
+                "door":"bed room",
+                "office":"office",
+                "slide":"ballpit"
+            }
+        },
+        {
+            "name":"office",
+            "description":"This office is full of shelves of stuff, a large desk,\n a table with a 3d printer on it, and a hole cut into the floor\n with a ladder sticking out of it. ",
+            "exits":{
+                "door":"hallway",
+                "ladder":"kitchen"
+            }
+        },
+        {
+            "name":"ballpit",
+            "description":"you slide down, and land with a splash in to a large ballpit!\n you had forgotten that was here",
+            "exits":{
+                "hatch":"kitchen"
+            }
+        },
+        {
+            "name":"kitchen",
+            "description":"you clamber to the kitchen, it looks clean,\n but the floor could probably do with a mop\n A ladder extends upwards\n there is also a hatch leading to a ballpit,\n but you can't climb through it from this side\n all the parts for making a huel shake are out and\n the side is a bit powdery",
+            "contents": ["huel"],
+            "exits":{
+                "ladder":"office"
             }
         }
 
